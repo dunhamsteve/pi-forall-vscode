@@ -1,0 +1,81 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "pi-forall",
+	"scopeName": "source.pi4all",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"name": "meta.import.pi4all",
+			"match": "\\b(import) ([\\w.]+)",
+			"captures": {
+				"1": { "name": "keyword" },
+				"2": { "name": "entity.name.namespace"}
+			}
+		},
+		{
+		"name": "keyword.operator.pi4all",
+		"match": "[:!#$%&*+.,/<=>?@\\^|-]+"
+		},
+		{
+			"name": "storage.type",
+			"match": "\\b([A-Z]\\w*)",
+			"comment": "Need to handle (A : Type) better."
+		},
+		{
+			"name": "keyword.control.pi4all",
+			"match": "\\b(let|in|if|then|else|subst|by|contra|where|data|case|of)\\b"
+		},
+		{
+			"name": "keyword.control.pi4app",
+			"match": "\\b(import)\\b"
+		},
+		{
+			"name": "keyword.other.pi4all",
+			"match": "\\b(TRUSTME|PRINTME)\\b"
+		},
+		{
+			"include": "#strings"
+		},
+		
+
+		{
+			"name": "meta.declaration.module.pi4all",
+			"begin": "\\b(module)\\b",
+			"beginCaptures": {
+				"1": { "name" : "keyword.control.pi4all" }
+			},
+			"end": "\\b(where)\\b",
+			"endCaptures": {
+				"1": { "name": "keyword.control.pi4all" }
+			},
+			"patterns": [
+				{
+					"match": "([\\w._']+)",
+					"name": "storage.module.pi4all"
+				}
+			]
+		}
+	],
+	"repository": {
+			
+		"strings": {
+			"name": "string.quoted.double.pi4all",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pi4all",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name": "comment.line.double-dash",
+			"begin": "--",
+			"end": "\\n"
+		}
+	}
+	
+}

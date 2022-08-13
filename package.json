@@ -1,0 +1,27 @@
+{
+  "publisher": "dunhamsteve",
+  "name": "pi4all",
+  "displayName": "pi-forall",
+  "description": "pi-forall highlighting support",
+  "version": "0.1.0",
+  "repository": "https://github.com/dunhamsteve/pi-forall-vscode",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pi4all",
+      "aliases": ["pi-forall", "pi4all"],
+      "extensions": [".pi"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pi4all",
+      "scopeName": "source.pi4all",
+      "path": "./syntaxes/pi4all.tmLanguage.json"
+    }]
+  }
+}
