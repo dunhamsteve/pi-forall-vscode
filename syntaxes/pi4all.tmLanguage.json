@@ -18,11 +18,7 @@
 		"name": "keyword.operator.pi4all",
 		"match": "[:!#$%&*+.,/<=>?@\\^|-]+"
 		},
-		{
-			"name": "storage.type",
-			"match": "\\b([A-Z]\\w*)",
-			"comment": "Need to handle (A : Type) better."
-		},
+		
 		{
 			"name": "keyword.control.pi4all",
 			"match": "\\b(let|in|if|then|else|subst|by|contra|where|data|case|of)\\b"
@@ -32,14 +28,17 @@
 			"match": "\\b(import)\\b"
 		},
 		{
-			"name": "keyword.other.pi4all",
-			"match": "\\b(TRUSTME|PRINTME)\\b"
+			"name": "keyword.other.piforall",
+			"match": "\b(Refl|ind|Type|axiom|TRUSTME|PRINTME|ord|Bool|True|False|Unit|TRUSTME|PRINTME|\\(\\))\\b"
+		},
+		{
+			"name": "storage.type",
+			"match": "\\b([A-Z]\\w*)",
+			"comment": "Need to handle (A : Type) better."
 		},
 		{
 			"include": "#strings"
 		},
-		
-
 		{
 			"name": "meta.declaration.module.pi4all",
 			"begin": "\\b(module)\\b",
