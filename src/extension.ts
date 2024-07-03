@@ -41,8 +41,13 @@ export function activate(context: vscode.ExtensionContext) {
           let range =
             document.getWordRangeAtPosition(start) ??
             new vscode.Range(start, end);
-          // anything indented, Context:, or Goal: are part of the message
-          while (lines[i + 1]?.match(/^(  |Context:|Goal:)/)) {
+          // heuristics to grab the entire message:
+          // anything indented
+          // Context:, or Goal: are part of PRINTME
+          // unexpected / expecting appear in parse errors
+          while (
+            lines[i + 1]?.match(/^(  |Context:|Goal:|unexpected |expecting )/)
+          ) {
             message += "\n" + lines[++i];
           }
           const severity = warn

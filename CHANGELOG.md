@@ -2,7 +2,8 @@
 
 All notable changes to the "pi4all" extension will be documented in this file.
 
-## [Unreleased]
+## [0.1.3] - 2024-07-03
+- Fix display of parse errors
 
 ## [0.1.2] - 2024-07-02
 - Run pi-forall on save and display results in "Problems" pane.
